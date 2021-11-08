@@ -1,0 +1,28 @@
+PODS:
+  - better_file_md5_plugin (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - path_provider (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - better_file_md5_plugin (from `.symlinks/plugins/better_file_md5_plugin/ios`)
+  - Flutter (from `Flutter`)
+  - path_provider (from `.symlinks/plugins/path_provider/ios`)
+
+EXTERNAL SOURCES:
+  better_file_md5_plugin:
+    :path: ".symlinks/plugins/better_file_md5_plugin/ios"
+  Flutter:
+    :path: Flutter
+  path_provider:
+    :path: ".symlinks/plugins/path_provider/ios"
+
+SPEC CHECKSUMS:
+  better_file_md5_plugin: 408ea7e823f089f5655f26612676f9aaad306ba7
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  path_provider: d1e9807085df1f9cc9318206cd649dc0b76be3de
+
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
+
+COCOAPODS: 1.10.1
