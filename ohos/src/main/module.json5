@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "better_file_md5_plugin",
+    "type": "har",
+    "description": "Better File MD5 Plugin for HarmonyOS",
+    "deviceTypes": [
+      "default"
+    ]
+  }
+}

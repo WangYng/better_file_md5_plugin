@@ -1,6 +1,6 @@
 name: better_file_md5_plugin
 description: Calculate File Md5 for Flutter.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/WangYng
 repository: https://github.com/WangYng/better_file_md5_plugin
 
@@ -24,4 +24,6 @@ flutter:
         package: io.github.wangyng.better_file_md5_plugin
         pluginClass: BetterFileMd5PluginPlugin
       ios:
+        pluginClass: BetterFileMd5PluginPlugin
+      ohos:
         pluginClass: BetterFileMd5PluginPlugin

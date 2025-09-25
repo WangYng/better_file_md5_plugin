@@ -4,11 +4,9 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:better_file_md5_plugin/better_file_md5_plugin.dart';
-import 'package:convert/convert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path/path.dart' as path;
-import 'package:path_provider/path_provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,26 +18,35 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String hexMd5 = "";
-  String base64Md5 = "";
+  String hexMd5 = "--loading--";
+  String base64Md5 = "--loading--";
+  String filePath = "--loading--";
+
+  String _bytesToHex(List<int> bytes) {
+    return bytes.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join('');
+  }
 
   @override
   void initState() {
     super.initState();
 
-    Future.microtask(() async {
+    Future.delayed(Duration.zero, () async {
       // save image to local path
       final bytes = Uint8List.view((await rootBundle.load("images/logo.png")).buffer);
-      final file = File(path.join((await getTemporaryDirectory()).path, "logo.png"));
+      final tempDir = Directory.systemTemp;
+      final file = File(path.join(tempDir.path, "logo.png"));
       if (!file.existsSync()) {
         await file.writeAsBytes(bytes);
       }
+      setState(() {
+        filePath = file.path;
+      });
 
       final md5 = await BetterFileMd5.md5(file.path);
       if (md5 != null && mounted) {
         setState(() {
           base64Md5 = md5;
-          hexMd5 = hex.encode(base64Decode(md5));
+          hexMd5 = _bytesToHex(base64Decode(md5));
         });
       }
     });
@@ -53,7 +60,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('base64Md5 : $base64Md5 \nhexMd5 : $hexMd5'),
+          child: Text('filePath: ${filePath} \nbase64Md5 : $base64Md5 \nhexMd5 : $hexMd5'),
         ),
       ),
     );

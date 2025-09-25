@@ -8,7 +8,7 @@ Calculate File Md5 for Flutter.
 
 ```yaml
 dependencies:
-  better_file_md5_plugin: ^0.0.1
+  better_file_md5_plugin: ^0.0.2
 ```
 
 2. Install it
@@ -27,3 +27,11 @@ $ flutter packages get
 
 ## Feature
 - [x] file md5
+- [x] Android support
+- [x] iOS support
+- [x] HarmonyOS support
+
+## Supported Platforms
+- ✅ Android
+- ✅ iOS  
+- ✅ HarmonyOS (鸿蒙)
